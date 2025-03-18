@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class SearchField extends StatelessWidget {
@@ -12,25 +11,20 @@ class SearchField extends StatelessWidget {
       width: 250,
       height: 50,
       decoration: BoxDecoration(
-      color: Colors.amberAccent.withOpacity(0.1),
-      borderRadius: BorderRadius.circular(15),
+        color: Colors.amberAccent.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(15),
       ),
       child: TextField(
-        onChanged: (value) {
-          // serach value
-        },
-        decoration: InputDecoration
-        (
-          enabledBorder: InputBorder.none,
-          focusedBorder: InputBorder.none,
-          hintText: "ابحث هنا ...",
-          prefixIcon: Icon(Icons.search),
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 9
-          )
-        )
-        ),
+          onChanged: (value) {
+            // serach value
+          },
+          decoration: const InputDecoration(
+              enabledBorder: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              hintText: "ابحث هنا ...",
+              prefixIcon: Icon(Icons.search),
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 20, vertical: 9))),
     );
   }
 }

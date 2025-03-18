@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:sahm/Features/details_screen/models/RatingReview_model.dart';
+import 'package:sahm/Features/details_screen/models/rating_review_model.dart';
 
 class RatingSummary extends StatelessWidget {
   final List<Review> reviews;
@@ -35,12 +35,12 @@ class RatingSummary extends StatelessWidget {
           children: [
             Text(
               overallRating.toStringAsFixed(1),
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 48,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
               child: Text(
@@ -53,21 +53,28 @@ class RatingSummary extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         ...List.generate(5, (index) {
           final starCount = 5 - index;
           final ratingCount = ratingCounts[index];
           return _buildRatingBar(starCount, ratingCount, totalRatings);
         }).reversed, // Reversing to start from 5 stars
       ],
-    ).animate().fadeIn().scale().move(
-                    delay: 20.ms,
-                    duration: 600.ms,
-                  )
-            .animate().fadeIn().scale().move(
-                  delay: 20.ms,
-                  duration: 600.ms,
-            );
+    )
+        .animate()
+        .fadeIn()
+        .scale()
+        .move(
+          delay: 20.ms,
+          duration: 600.ms,
+        )
+        .animate()
+        .fadeIn()
+        .scale()
+        .move(
+          delay: 20.ms,
+          duration: 600.ms,
+        );
   }
 
   // Individual rating bar for each star level
@@ -76,10 +83,10 @@ class RatingSummary extends StatelessWidget {
       children: [
         // Display stars instead of numbers
         Row(
-          children: List.generate(
-              star, (index) => Icon(Icons.star, color: Colors.amber, size: 16)),
+          children: List.generate(star,
+              (index) => const Icon(Icons.star, color: Colors.amber, size: 16)),
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Expanded(
           child: Align(
             alignment: Alignment.centerLeft,
@@ -95,7 +102,7 @@ class RatingSummary extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Text('$count'), // Keep the count to the right
       ],
     );

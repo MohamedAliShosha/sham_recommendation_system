@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sahm/Features/cart/cubit/CartState.dart';
-import 'package:sahm/Features/cart/models/CartModel.dart';
+import 'package:sahm/Features/cart/cubit/cart_state.dart';
+import 'package:sahm/Features/cart/models/cart_model.dart';
 import 'package:sahm/core/constant/constant.dart';
 
 class CartCubit extends Cubit<CartState> {

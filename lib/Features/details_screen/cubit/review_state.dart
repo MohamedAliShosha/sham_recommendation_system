@@ -1,5 +1,4 @@
-import 'package:sahm/Features/details_screen/models/RatingReview_model.dart';
-import 'package:sahm/core/models/product_model.dart';
+import 'package:sahm/Features/details_screen/models/rating_review_model.dart';
 
 abstract class ReviewState {}
 

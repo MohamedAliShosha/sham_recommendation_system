@@ -13,7 +13,7 @@ import 'package:sahm/core/shared/shared_prefrances.dart';
 import 'package:sahm/core/themes/text_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sahm/Features/details_screen/view/details_screen.dart';
-import 'package:sahm/widgets/appBar/app_Bar.dart';
+import 'package:sahm/widgets/appBar/app_bar.dart';
 
 class ShopingScreen extends StatefulWidget {
   const ShopingScreen({

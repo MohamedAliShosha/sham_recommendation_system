@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:sahm/Features/details_screen/cubit/ReviewState.dart';
-import 'package:sahm/Features/details_screen/models/RatingReview_model.dart';
+import 'package:sahm/Features/details_screen/cubit/review_state.dart';
+import 'package:sahm/Features/details_screen/models/rating_review_model.dart';
 import 'package:sahm/core/constant/constant.dart';
 
 class ReviewCubit extends Cubit<ReviewState> {
@@ -58,14 +58,15 @@ class ReviewCubit extends Cubit<ReviewState> {
       emit(ReviewError('Error: ${e.toString()}'));
     }
   }
-   Future<void> postReview({
+
+  Future<void> postReview({
     required String title,
     required int ratings,
     required String userId,
     required String productId,
   }) async {
     try {
-         emit(ReviewLoading());
+      emit(ReviewLoading());
       // URL for posting a review
       final postUrl = 'https://sahm-backend.onrender.com/api/review';
 
@@ -80,7 +81,8 @@ class ReviewCubit extends Cubit<ReviewState> {
       // Send the POST request
       final response = await http.post(
         Uri.parse(postUrl),
-        headers: {'Content-Type': 'application/json',
+        headers: {
+          'Content-Type': 'application/json',
           'Authorization': 'Bearer ${AppStrings.token}'
         },
         body: json.encode(reviewData),
@@ -88,13 +90,11 @@ class ReviewCubit extends Cubit<ReviewState> {
 
       // Log the response for debugging
       log('Review POST Response: ${response.body}');
-      
+
       // Handle the response
       if (response.statusCode == 201) {
-        
         log('Review posted successfully');
         emit(ReviewPostSuccess());
-        
       } else if (response.statusCode == 400) {
         emit(ReviewError('You already created a review before'));
       } else {

@@ -38,7 +38,7 @@ class ThirdSplashScreen extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (ctx) => LoginScreen(),
+                    builder: (ctx) => const LoginScreen(),
                   ),
                 );
               },

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sahm/Features/details_screen/view/Rating_Review_screen.dart';
+import 'package:sahm/Features/details_screen/view/rating_review_screen.dart';
 import 'package:sahm/controller/AddToCart/add_to_cart_cubit.dart';
 import 'package:sahm/controller/Favorite/favorite_cubit.dart';
 import 'package:sahm/core/models/product_model.dart';
@@ -145,16 +145,18 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   child: Row(
                     children: [
                       InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (ctx) => ReviewsView(
-                                product: widget.product,
-                              ),
-                          ));
-                        },
-                        child: Rating(rating: widget.product.ratingsQuantity.toDouble())),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (ctx) => ReviewsView(
+                                    product: widget.product,
+                                  ),
+                                ));
+                          },
+                          child: Rating(
+                              rating:
+                                  widget.product.ratingsQuantity.toDouble())),
                       Text("(${widget.product.ratingsQuantity})")
                           .animate()
                           .fadeIn()

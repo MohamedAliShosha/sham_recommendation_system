@@ -17,14 +17,14 @@ AppBar appBare(Function()? onPressed, {required String parText}) {
     actions: [
       IconButton(
         onPressed: onPressed,
-        icon: Icon(Icons.search),
+        icon: const Icon(Icons.search),
         color: TAppBarTheme.lightAppBarTheme.actionsIconTheme?.color,
         iconSize: TAppBarTheme.lightAppBarTheme.actionsIconTheme?.size,
       )
     ],
     leading: IconButton(
       onPressed: () {},
-      icon: Icon(Icons.arrow_back_ios_new),
+      icon: const Icon(Icons.arrow_back_ios_new),
       color: TAppBarTheme.lightAppBarTheme.iconTheme?.color,
       iconSize: TAppBarTheme.lightAppBarTheme.iconTheme?.size,
     ),

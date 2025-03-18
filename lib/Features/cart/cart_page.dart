@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:sahm/Features/cart/cubit/CartCubit.dart';
-import 'package:sahm/Features/cart/cubit/CartState.dart';
+import 'package:sahm/Features/cart/cubit/cart_cubit.dart';
+import 'package:sahm/Features/cart/cubit/cart_state.dart';
 import 'package:sahm/Features/cart/widgets/build+total+amount.dart';
 import 'package:sahm/Features/cart/widgets/build_cart_item.dart';
 import 'package:sahm/Features/cart/widgets/build_checkout_button.dart';
 import 'package:sahm/Features/cart/widgets/build_promo_code_input.dart';
 
 class CartPage extends StatelessWidget {
-  CartPage({Key? key}) : super(key: key);
-
+  const CartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +64,7 @@ class CartPage extends StatelessWidget {
             .fadeIn(duration: 800.ms, curve: Curves.easeInOut)
             .scale(duration: 600.ms, curve: Curves.easeOutBack)
             .move(
-              begin: Offset(0, -20),
+              begin: const Offset(0, -20),
               delay: 100.ms,
               duration: 600.ms,
               curve: Curves.easeInOut,
@@ -83,7 +82,6 @@ class CartPage extends StatelessWidget {
     final cartItems = state.cartModel.cartItems ?? [];
 
     // Update total amount
-  
 
     if (cartItems.isEmpty) {
       return _buildEmptyCartView();
@@ -123,12 +121,11 @@ class CartPage extends StatelessWidget {
           animatedTexts: [
             WavyAnimatedText(
               'Cart is Empty',
-              speed: Duration(milliseconds: 250),
+              speed: const Duration(milliseconds: 250),
             ),
           ],
           repeatForever: true,
           isRepeatingAnimation: true,
-         
         ),
       ).animate().fadeIn().scale().move(delay: 20.ms, duration: 600.ms),
     );
@@ -137,8 +134,8 @@ class CartPage extends StatelessWidget {
   Widget _buildBottomSection() {
     return Column(
       children: [
-        buildPromoCodeInput().animate().slideY(), 
-        buildTotalAmount() ,
+        buildPromoCodeInput().animate().slideY(),
+        buildTotalAmount(),
         Builder(
           builder: (context) => buildCheckoutButton(context).animate().slideY(),
         ),

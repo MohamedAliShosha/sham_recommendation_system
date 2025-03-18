@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sahm/Features/details_screen/cubit/ReviewCubit.dart';
-import 'package:sahm/core/constant/constant.dart';
+
 import 'package:sahm/core/models/product_model.dart';
 
 class ReviewBottomSheet extends StatefulWidget {
@@ -126,7 +126,6 @@ class ReviewBottomSheetState extends State<ReviewBottomSheet> {
           );
         }
       },
-      child: const Text('SEND REVIEW'),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.green,
         padding: const EdgeInsets.symmetric(vertical: 15),
@@ -134,6 +133,7 @@ class ReviewBottomSheetState extends State<ReviewBottomSheet> {
           borderRadius: BorderRadius.circular(35),
         ),
       ),
+      child: const Text('SEND REVIEW'),
     );
   }
 }

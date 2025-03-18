@@ -10,7 +10,7 @@ import 'package:sahm/controller/Favorite/favorite_cubit.dart';
 import 'package:sahm/core/models/product_model.dart';
 import 'package:sahm/core/themes/text_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sahm/widgets/appBar/app_Bar.dart';
+import 'package:sahm/widgets/appBar/app_bar.dart';
 
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({

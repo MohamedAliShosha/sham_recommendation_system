@@ -9,7 +9,7 @@ import 'package:sahm/core/utils/colors.dart';
 import 'package:sahm/core/utils/sizes.dart';
 
 class BrandsScreen extends StatefulWidget {
-  BrandsScreen({
+  const BrandsScreen({
     super.key,
   });
 

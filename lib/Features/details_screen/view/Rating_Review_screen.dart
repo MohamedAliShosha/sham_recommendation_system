@@ -3,8 +3,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:sahm/Features/details_screen/cubit/ReviewCubit.dart';
-import 'package:sahm/Features/details_screen/cubit/ReviewState.dart';
-import 'package:sahm/Features/details_screen/widget/ReviewBottomSheet.dart';
+import 'package:sahm/Features/details_screen/cubit/review_state.dart';
+import 'package:sahm/Features/details_screen/widget/review_bottom_sheet.dart';
 import 'package:sahm/Features/details_screen/widget/raeting_summary.dart';
 import 'package:sahm/Features/details_screen/widget/review_card.dart';
 import 'package:sahm/core/models/product_model.dart';
@@ -13,8 +13,7 @@ class ReviewsView extends StatefulWidget {
   const ReviewsView({required this.product, Key? key}) : super(key: key);
   final Product product;
 
-  @override 
-  
+  @override
   State<ReviewsView> createState() => _ReviewsViewState();
 }
 
@@ -23,6 +22,7 @@ class _ReviewsViewState extends State<ReviewsView> {
     super.initState();
     context.read<ReviewCubit>().fetchReviews(widget.product.id, 1);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,6 @@ class _ReviewsViewState extends State<ReviewsView> {
         child: BlocListener<ReviewCubit, ReviewState>(
           listener: (context, state) {
             if (state is ReviewPostSuccess) {
-
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Review posted successfully!')),
               );
@@ -46,7 +45,7 @@ class _ReviewsViewState extends State<ReviewsView> {
           child: BlocBuilder<ReviewCubit, ReviewState>(
             builder: (context, state) {
               if (state is ReviewLoading) {
-                return  Center(
+                return Center(
                   child: LoadingAnimationWidget.inkDrop(
                     size: 50,
                     color: Colors.green,
@@ -117,15 +116,21 @@ class _ReviewsViewState extends State<ReviewsView> {
                   reviewDate: review.createdAt,
                   reviewText: review.title,
                   reviewerName: review.user.name,
-                ).animate().fadeIn().scale().move(
-                    delay: 20.ms,
-                    duration: 600.ms,
-                  
-            ).animate().fadeIn().scale().move(
-                  delay: 20.ms,
-                  duration: 600.ms,
-                );
-                
+                )
+                    .animate()
+                    .fadeIn()
+                    .scale()
+                    .move(
+                      delay: 20.ms,
+                      duration: 600.ms,
+                    )
+                    .animate()
+                    .fadeIn()
+                    .scale()
+                    .move(
+                      delay: 20.ms,
+                      duration: 600.ms,
+                    );
               },
             ),
           ),

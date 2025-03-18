@@ -16,7 +16,7 @@ class ListViewImages extends StatelessWidget {
     return SizedBox(
       height: 350.h,
       child: ListView.builder(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: prod.product.images.length,
         itemBuilder: (context, index) {

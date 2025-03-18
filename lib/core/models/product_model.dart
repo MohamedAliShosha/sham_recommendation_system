@@ -1,4 +1,4 @@
-import 'package:sahm/Features/details_screen/models/RatingReview_model.dart';
+import 'package:sahm/Features/details_screen/models/rating_review_model.dart';
 
 class Product {
   final String id;
@@ -19,8 +19,7 @@ class Product {
   final DateTime createdAt;
   final DateTime updatedAt;
   bool isFavorite;
- List<Review>? reviews; 
-
+  List<Review>? reviews;
 
   Product({
     this.reviews,
@@ -47,7 +46,7 @@ class Product {
   factory Product.fromJson(Map<String, dynamic> json) {
     try {
       return Product(
-       reviews: json['reviews'] != null
+        reviews: json['reviews'] != null
             ? List<Review>.from(
                 json['reviews'].map((review) => Review.fromJson(review)))
             : null,
@@ -84,7 +83,6 @@ class Product {
     } catch (e) {
       print("Error parsing product: $e");
       return Product(
-      
         id: '',
         title: 'Error Product',
         description: '',

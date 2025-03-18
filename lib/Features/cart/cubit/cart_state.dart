@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:sahm/Features/cart/models/CartModel.dart';
-
+import 'package:sahm/Features/cart/models/cart_model.dart';
 
 abstract class CartState extends Equatable {
   const CartState();

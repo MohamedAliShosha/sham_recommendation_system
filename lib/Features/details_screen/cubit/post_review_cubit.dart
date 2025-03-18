@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
-import 'package:sahm/Features/details_screen/cubit/postReviewState.dart';
+import 'package:sahm/Features/details_screen/cubit/post_review_state.dart';
 
 class SubmitReviewCubit extends Cubit<SubmitReviewState> {
   SubmitReviewCubit() : super(SubmitReviewInitial());

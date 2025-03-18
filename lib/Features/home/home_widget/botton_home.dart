@@ -33,14 +33,15 @@ class BottonForHome extends StatelessWidget {
                 color: Colors.black.withOpacity(0.2), // لون الظل
                 spreadRadius: 2, // مدى انتشار الظل
                 blurRadius: 5, // مدى التمويه
-                offset: Offset(0, 3), // موضع الظل
+                offset: const Offset(0, 3), // موضع الظل
               ),
             ],
           ),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30.0),
               ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sahm/Features/cart/cubit/CartCubit.dart';
-import 'package:sahm/Features/cart/models/CartModel.dart';
+import 'package:sahm/Features/cart/cubit/cart_cubit.dart';
+import 'package:sahm/Features/cart/models/cart_model.dart';
 
 Widget buildCartItem(CartItemm item, BuildContext context) {
   final product = item.productDetails;
@@ -41,16 +41,16 @@ Widget buildCartItem(CartItemm item, BuildContext context) {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      Row(
+                      const Row(
                         children: [
                           Text('Color: red'),
-                          const SizedBox(width: 5),
+                          SizedBox(width: 5),
                           Text('Size:'),
                         ],
                       ),
                     ],
                   ),
-                PopupMenuButton<String>(
+                  PopupMenuButton<String>(
                     icon: const Icon(Icons.more_vert),
                     onSelected: (String result) {
                       switch (result) {
