@@ -6,7 +6,7 @@ Widget buildPromoCodeInput() {
     child: Row(
       children: [
         Expanded(
-          child: Container(
+          child: SizedBox(
             //width: double.infinity,
             height: 40,
             child: const TextField(

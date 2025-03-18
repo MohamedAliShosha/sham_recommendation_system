@@ -18,7 +18,7 @@ class AddToCartCubit extends Cubit<AddToCartState> {
       var dio = Dio();
 
       // إعداد الـ Dio لتجاوز مشاكل الشهادة
-      (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+      (dio.httpClientAdapter as IOHttpClientAdapter).onHttpClientCreate =
           (HttpClient client) {
         client.badCertificateCallback =
             (X509Certificate cert, String host, int port) => true;

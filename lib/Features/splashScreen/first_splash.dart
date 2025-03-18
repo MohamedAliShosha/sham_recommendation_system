@@ -10,7 +10,7 @@ class FirstSplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height - 200.h,
       child: Stack(
         children: [

@@ -8,7 +8,7 @@ class SecondSplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 1.sh, // استخدام screenutil لضبط الارتفاع بما يتناسب مع حجم الشاشة
       child: Stack(
         children: [

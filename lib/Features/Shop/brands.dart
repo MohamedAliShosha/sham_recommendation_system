@@ -129,7 +129,7 @@ class _BrandsScreenState extends State<BrandsScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
+                      SizedBox(
                         width: 120.w,
                         child: Text(
                           brandList[index],

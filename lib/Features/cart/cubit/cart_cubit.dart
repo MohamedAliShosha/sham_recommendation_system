@@ -77,9 +77,8 @@ class CartCubit extends Cubit<CartState> {
 
     final currentCart = (state as CartLoaded).cartModel;
     final updatedCart = CartModel(
-      cartItems: currentCart.cartItems!
-          .where((item) => item.id != cartItemId)
-          .toList(),
+      cartItems:
+          currentCart.cartItems.where((item) => item.id != cartItemId).toList(),
     );
 
     emit(CartLoaded(updatedCart));
@@ -121,7 +120,7 @@ class CartCubit extends Cubit<CartState> {
 
     final currentCart = (state as CartLoaded).cartModel;
     final updatedCart = CartModel(
-      cartItems: currentCart.cartItems!.map((item) {
+      cartItems: currentCart.cartItems.map((item) {
         if (item.id == cartItemId) {
           return CartItemm(
             id: item.id,

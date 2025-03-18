@@ -18,6 +18,7 @@ class ReviewsView extends StatefulWidget {
 }
 
 class _ReviewsViewState extends State<ReviewsView> {
+  @override
   initState() {
     super.initState();
     context.read<ReviewCubit>().fetchReviews(widget.product.id, 1);

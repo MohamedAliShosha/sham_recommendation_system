@@ -68,7 +68,7 @@ class ReviewCubit extends Cubit<ReviewState> {
     try {
       emit(ReviewLoading());
       // URL for posting a review
-      final postUrl = 'https://sahm-backend.onrender.com/api/review';
+      const postUrl = 'https://sahm-backend.onrender.com/api/review';
 
       // Create the request body
       final Map<String, dynamic> reviewData = {
