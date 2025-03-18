@@ -69,7 +69,7 @@ class _SignUpState extends State<SignUp> {
           Padding(
             padding: const EdgeInsets.fromLTRB(14, 106, 0, 0),
             child: Text(
-              "Login",
+              "Sign Up",
               style: GoogleFonts.tajawal(
                   textStyle: const TextStyle(
                       fontSize: 34, fontWeight: FontWeight.w700)),
