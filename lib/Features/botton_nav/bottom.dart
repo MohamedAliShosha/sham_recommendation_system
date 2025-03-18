@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sahm/Features/cart/cart_page.dart';
 import 'package:sahm/controller/shop_home/sahm_cubit.dart';
 import 'package:sahm/Features/Favorite/favorite_screen.dart';
-import 'package:sahm/Features/Shop/brands.dart';
 import 'package:sahm/Features/Shop/shoping_screen.dart';
 import 'package:sahm/Features/home/home_page.dart';
 

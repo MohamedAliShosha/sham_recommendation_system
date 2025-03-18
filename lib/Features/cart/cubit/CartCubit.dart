@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sahm/Features/cart/cubit/CartState.dart';
@@ -41,7 +40,7 @@ class CartCubit extends Cubit<CartState> {
         _cacheCart(cartModel);
         emit(CartLoaded(cartModel));
       } else {
-        emit(CartError('Failed to load cart items'));
+        emit(const CartError('Failed to load cart items'));
       }
     } catch (e) {
       emit(CartError('Error: $e'));
@@ -78,9 +77,8 @@ class CartCubit extends Cubit<CartState> {
 
     final currentCart = (state as CartLoaded).cartModel;
     final updatedCart = CartModel(
-      
-      cartItems: currentCart.cartItems
-          !.where((item) => item.id != cartItemId)
+      cartItems: currentCart.cartItems!
+          .where((item) => item.id != cartItemId)
           .toList(),
     );
 
@@ -99,7 +97,7 @@ class CartCubit extends Cubit<CartState> {
         // If the server request fails, revert the change
         emit(CartLoaded(currentCart));
         _cacheCart(currentCart);
-        emit(CartError('Failed to remove item from cart'));
+        emit(const CartError('Failed to remove item from cart'));
       }
     } catch (e) {
       // If there's an error, revert the change
@@ -116,7 +114,6 @@ class CartCubit extends Cubit<CartState> {
   void invalidateCache() {
     _lastFetchTime = null;
   }
- 
 
   Future<void> updateCartItemQuantity(
       String cartItemId, int newQuantity) async {
@@ -154,7 +151,7 @@ class CartCubit extends Cubit<CartState> {
         // If the server request fails, revert the change
         emit(CartLoaded(currentCart));
         _cacheCart(currentCart);
-        emit(CartError('Failed to update item quantity'));
+        emit(const CartError('Failed to update item quantity'));
       }
     } catch (e) {
       // If there's an error, revert the change
@@ -163,5 +160,4 @@ class CartCubit extends Cubit<CartState> {
       emit(CartError('Error: $e'));
     }
   }
-
 }
