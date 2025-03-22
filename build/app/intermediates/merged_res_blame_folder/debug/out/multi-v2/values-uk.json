@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sahm.app-mergeDebugResources-30:/values-uk/values-uk.xml",
+            "outputFile": "com.example.sahm.app-mergeDebugResources-33:/values-uk/values-uk.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Magico\\.gradle\\caches\\8.13\\transforms\\cb2468ca794b5219c77789ecae2b626a\\transformed\\jetified-play-services-base-18.3.0\\res\\values-uk\\values.xml",
+                    "source": "C:\\Users\\Magico\\.gradle\\caches\\8.13\\transforms\\1774323067febeafb206a77004f161fa\\transformed\\jetified-play-services-base-18.5.0\\res\\values-uk\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Magico\\.gradle\\caches\\8.13\\transforms\\5e12453520cecd2f0c049549bd6afb5a\\transformed\\jetified-play-services-basement-18.3.0\\res\\values-uk\\values.xml",
+                    "source": "C:\\Users\\Magico\\.gradle\\caches\\8.13\\transforms\\1dec4f45a3d516319735845d5480e691\\transformed\\jetified-play-services-basement-18.5.0\\res\\values-uk\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

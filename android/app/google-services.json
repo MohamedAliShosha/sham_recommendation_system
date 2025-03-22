@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "558267698415",
+    "project_id": "sahm-50f07",
+    "storage_bucket": "sahm-50f07.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558267698415:android:17ed7b6309fafb325b9f1a",
+        "android_client_info": {
+          "package_name": "com.example.sahm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiQJ2md0Kt4SJYnqYlQbe_FovtN_gJVyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

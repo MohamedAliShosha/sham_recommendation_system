@@ -1,4 +1,6 @@
 import 'dart:developer';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -14,11 +16,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(); // Initialize Firebase
 
   // Get the saved token from SharedPreferences
   AppStrings.token = await SharedPreferencesHelper.getString("token");
-  AppStrings.userId=await SharedPreferencesHelper.getString("userId");
-  AppStrings.userName=await SharedPreferencesHelper.getString("userName");
+  AppStrings.userId = await SharedPreferencesHelper.getString("userId");
+  AppStrings.userName = await SharedPreferencesHelper.getString("userName");
   log(AppStrings.token.toString());
 
   runApp(const MyApp());
@@ -27,6 +30,10 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  static FirebaseAnalytics analytics =
+      FirebaseAnalytics.instance; // Initialize Firebase Analytics
+  static FirebaseAnalyticsObserver observer =
+      FirebaseAnalyticsObserver(analytics: analytics);
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -46,6 +53,7 @@ class MyApp extends StatelessWidget {
           ],
           child: GetMaterialApp(
             debugShowCheckedModeBanner: false,
+            navigatorObservers: [observer], // Add Firebase Analytics Observer
             theme: ThemeData(
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               scaffoldBackgroundColor: Colors.white,

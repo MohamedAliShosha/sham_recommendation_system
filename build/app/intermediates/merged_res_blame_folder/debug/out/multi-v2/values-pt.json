@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sahm.app-mergeDebugResources-30:/values-pt/values-pt.xml",
+            "outputFile": "com.example.sahm.app-mergeDebugResources-33:/values-pt/values-pt.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Magico\\.gradle\\caches\\8.13\\transforms\\7099848a01afe8090a249f70f5b6f11c\\transformed\\core-1.13.1\\res\\values-pt\\values-pt.xml",

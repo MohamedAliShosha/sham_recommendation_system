@@ -5,11 +5,11 @@ Widget buildPromoCodeInput() {
     padding: const EdgeInsets.all(16),
     child: Row(
       children: [
-        Expanded(
+        const Expanded(
           child: SizedBox(
             //width: double.infinity,
             height: 40,
-            child: const TextField(
+            child: TextField(
               decoration: InputDecoration(
                 fillColor: Colors.white,
                 filled: true,

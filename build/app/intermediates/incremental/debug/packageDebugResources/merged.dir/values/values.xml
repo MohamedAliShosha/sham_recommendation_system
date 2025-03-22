@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="gcm_defaultSenderId" translatable="false">558267698415</string>
+    <string name="google_api_key" translatable="false">AIzaSyDiQJ2md0Kt4SJYnqYlQbe_FovtN_gJVyA</string>
+    <string name="google_app_id" translatable="false">1:558267698415:android:17ed7b6309fafb325b9f1a</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDiQJ2md0Kt4SJYnqYlQbe_FovtN_gJVyA</string>
+    <string name="google_storage_bucket" translatable="false">sahm-50f07.firebasestorage.app</string>
+    <string name="project_id" translatable="false">sahm-50f07</string>
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         
         <item name="android:windowBackground">@drawable/launch_background</item>
