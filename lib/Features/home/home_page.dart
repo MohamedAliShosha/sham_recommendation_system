@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
 
   final FirebaseAnalytics _firebaseAnalytics =
       FirebaseAnalytics.instance; // Firebase Analytics instance
+
   void logProductClick(Product product) {
     _firebaseAnalytics.logEvent(
       name: 'product_click', // Log the event

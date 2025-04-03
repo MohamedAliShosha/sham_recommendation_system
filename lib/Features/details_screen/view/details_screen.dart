@@ -33,7 +33,6 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   //! Constant padding used across the widgets
   static const EdgeInsets padding = EdgeInsets.all(10.0);
-  final FirebaseAnalytics _firebaseAnalytics = FirebaseAnalytics.instance;
 
   @override
   Widget build(BuildContext context) {
