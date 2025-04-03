@@ -33,6 +33,45 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   //! Constant padding used across the widgets
   static const EdgeInsets padding = EdgeInsets.all(10.0);
+  final FirebaseAnalytics _firebaseAnalytics = FirebaseAnalytics.instance;
+  //! Log event when a product is added to the cart
+  void logAddToCart(Product product) {
+    _firebaseAnalytics.logEvent(
+      name: 'add_to_cart',
+      parameters: {
+        'product_id': product.id,
+        'product_name': product.title,
+        'product_price': product.price,
+        'product_price_after_discount': product.priceAfterDiscount,
+        'quantity': 1, // Assuming 1 item is added at a time
+      },
+    );
+    print('Product added to cart: ${product.title}');
+  }
+
+  void logAddToFavorites(Product product) {
+    _firebaseAnalytics.logEvent(
+      name: 'add_to_favorites',
+      parameters: {
+        'product_id': product.id,
+        'product_name': product.title,
+        'product_price': product.price,
+      },
+    );
+    print('Product added to favorites: ${product.title}');
+  }
+
+  void logRemoveFromFavorites(Product product) {
+    _firebaseAnalytics.logEvent(
+      name: 'remove_from_favorites',
+      parameters: {
+        'product_id': product.id,
+        'product_name': product.title,
+        'product_price': product.price,
+      },
+    );
+    print('Product removed from favorites: ${product.title}');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,16 +132,22 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               child: IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    widget.product.isFavorite
-                                        ? context
-                                            .read<FavoriteCubit>()
-                                            .removeFavorite(
-                                                id: widget.product.id)
-                                        : context
-                                            .read<FavoriteCubit>()
-                                            .addFavorite(id: widget.product.id);
-                                    widget.product.isFavorite =
-                                        !widget.product.isFavorite;
+                                    if (widget.product.isFavorite) {
+                                      //! Remove from favorites and log the event
+                                      context
+                                          .read<FavoriteCubit>()
+                                          .removeFavorite(
+                                              id: widget.product.id);
+                                      widget.product.isFavorite = false;
+                                      logRemoveFromFavorites(widget.product);
+                                    } else {
+                                      //! Add to favorites and log the event
+                                      context
+                                          .read<FavoriteCubit>()
+                                          .addFavorite(id: widget.product.id);
+                                      widget.product.isFavorite = true;
+                                      logAddToFavorites(widget.product);
+                                    }
                                   });
                                 },
                                 icon: widget.product.isFavorite
@@ -213,6 +258,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         context
                             .read<AddToCartCubit>()
                             .addToCart(id: widget.product.id);
+
+                        // Log the event when the product is added to the cart
+                        logAddToCart(widget.product);
                       },
                     ),
                   );
