@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,6 +33,8 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   //! Constant padding used across the widgets
   static const EdgeInsets padding = EdgeInsets.all(10.0);
+  final FirebaseAnalytics _firebaseAnalytics = FirebaseAnalytics.instance;
+
   @override
   Widget build(BuildContext context) {
     //! Bloc provider for AddToCart functionality

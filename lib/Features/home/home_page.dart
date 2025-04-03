@@ -47,6 +47,35 @@ class _HomePageState extends State<HomePage> {
     print('Product click logged: ${product.title}'); // Print log message
   }
 
+  //! Log event when a product is added to favorites
+  void logAddToFavorites(Product product, bool isFavorite) {
+    _firebaseAnalytics.logEvent(
+      name: 'add_to_favorites', // Log the event
+      parameters: {
+        'product_id': product.id, // Product ID
+        'product_name': product.title, // Product name
+        'product_price': product.price, // Product price
+        'is_favorite':
+            isFavorite.toString(), // Whether the product is now a favorite
+      },
+    );
+    print(
+        'Favorite status changed: ${product.title}, isFavorite: $isFavorite'); // Debug log
+  }
+
+  void logRemoveFromFavorites(Product product, bool isFavorite) {
+    _firebaseAnalytics.logEvent(
+      name: 'remove_from_favorites',
+      parameters: {
+        'product_id': product.id,
+        'product_name': product.title,
+        'product_price': product.price,
+        'is_favorite': isFavorite.toString(),
+      },
+    );
+    print('Product removed from favorites: ${product.title}');
+  }
+
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator.adaptive(
@@ -474,17 +503,27 @@ class _HomePageState extends State<HomePage> {
   IconButton favoriteBotton(Product product) {
     return IconButton(
       onPressed: () {
-        context.read<FavoriteCubit>().addFavorite(id: product.id);
         setState(() {
-          product.isFavorite
-              ? context.read<FavoriteCubit>().removeFavorite(id: product.id)
-              : context.read<FavoriteCubit>().addFavorite(id: product.id);
-          product.isFavorite = !product.isFavorite;
+          if (!product.isFavorite) {
+            //! Add to favorites and log the event
+            context.read<FavoriteCubit>().addFavorite(id: product.id);
+            product.isFavorite = true;
+
+            // Log the add to favorites event only when the button turns red
+            logAddToFavorites(product, product.isFavorite);
+          } else {
+            //! Remove from favorites
+            context.read<FavoriteCubit>().removeFavorite(id: product.id);
+            product.isFavorite = false;
+
+            // Remove from favorites and log the event
+            logRemoveFromFavorites(product, product.isFavorite);
+          }
         });
       },
       icon: product.isFavorite
-          ? Icon(Icons.favorite, color: Colors.red)
-          : Icon(Icons.favorite_border_outlined),
+          ? Icon(Icons.favorite, color: Colors.red) // Favorite (red)
+          : Icon(Icons.favorite_border_outlined), // Not favorite (default)
     );
   }
 
