@@ -320,10 +320,10 @@ class _LoginScreenState extends State<LoginScreen> {
       print('Success');
       var getToken = json.decode(response.body);
       String token = getToken["token"];
-      String userId = getToken['_id'];
-      String userName = getToken['name'];
-      SharedPreferencesHelper.saveString("userName", userName);
-      SharedPreferencesHelper.saveString("userId", userId);
+      // String userId = getToken['_id'];
+      // String userName = getToken['name'];
+      // SharedPreferencesHelper.saveString("userName", userName);
+      // SharedPreferencesHelper.saveString("userId", userId);
       SharedPreferencesHelper.saveString("token", token);
 
       print(token);

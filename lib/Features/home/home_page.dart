@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -28,6 +29,23 @@ class HomePage extends StatefulWidget {
 //! State class for HomePage
 class _HomePageState extends State<HomePage> {
   //! Toggle the favorite status of a product
+
+  final FirebaseAnalytics _firebaseAnalytics =
+      FirebaseAnalytics.instance; // Firebase Analytics instance
+  void logProductClick(Product product) {
+    _firebaseAnalytics.logEvent(
+      name: 'product_click', // Log the event
+      parameters: {
+        'product_id': product.id, // Product ID
+        'product_name': product.title, // Product name
+        'product_price': product.price, // Product price
+        'product_price_after_discount':
+            product.priceAfterDiscount, // Product price after discount
+        'is_trending': product.trending.toString(), // Is product trending
+      },
+    );
+    print('Product click logged: ${product.title}'); // Print log message
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -237,7 +255,8 @@ class _HomePageState extends State<HomePage> {
   //! Creates a product card
   Widget itemCart(Product product) {
     return InkWell(
-      onTap: () {
+      onTap: () async {
+        logProductClick(product); // Log product click event
         //! Navigates to the product details screen
         Navigator.push(
           context,
