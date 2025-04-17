@@ -22,6 +22,7 @@ class Review {
     );
   }
 }
+
 class User {
   final String id;
   final String name;
@@ -47,4 +48,3 @@ class User {
     };
   }
 }
-

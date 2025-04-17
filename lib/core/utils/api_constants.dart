@@ -1,5 +1,3 @@
-
-class APIConstants
-{
-static const String tSecretAPIKey = " ,gbjgbjgbjgjgb";
+class APIConstants {
+  static const String tSecretAPIKey = " ,gbjgbjgbjgjgb";
 }

@@ -45,7 +45,11 @@ class _HomePageState extends State<HomePage> {
         'is_trending': product.trending.toString(), // Is product trending
       },
     );
-    print('Product click logged: ${product.title}'); // Print log message
+    print('Product name: ${product.title}'); // Print log message
+    print('Product id: ${product.id}'); // Print log message
+    print('Product id: ${product.price}'); // Print log message
+    print('Product id: ${product.priceAfterDiscount}'); // Print log message
+    print('Product id: ${product.trending}'); // Print log message
   }
 
   //! Log event when a product is added to favorites

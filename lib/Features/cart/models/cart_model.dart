@@ -1,9 +1,7 @@
 class CartModel {
   final List<CartItemm> cartItems;
-final int? totalCartPrice;
-  CartModel({
-     this.totalCartPrice,
-    required this.cartItems});
+  final int? totalCartPrice;
+  CartModel({this.totalCartPrice, required this.cartItems});
 
   factory CartModel.fromJson(Map<String, dynamic> json) {
     return CartModel(
